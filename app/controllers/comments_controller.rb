@@ -2,7 +2,9 @@ class CommentsController < ApplicationController
 	before_action :authenticate_thinker!
 
 	def index
+		@thought = Thought.find(params[:thought_id])
 		@comments = Comment.all
+		@thought_comments = @thought.comments
 	end
 
 	def create
@@ -11,8 +13,9 @@ class CommentsController < ApplicationController
 		@comment.thinker = current_thinker
 
 		if @comment.save
-			flash[:notice] = "Comment Created!"
-			redirect_to thought_path(@comment.thought)
+			# flash[:notice] = "Comment Created!"
+			# redirect_to thought_path(@comment.thought)
+			render json: @comment, status: 201
 		else
 			flash.now[:alert] = "Comment Not Created!"
 			render 'thoughts/show'

@@ -13,6 +13,7 @@ class ThoughtsController < ApplicationController
   def show
     @comment = Comment.new
     @comment.thought_id = @thought.id
+
   end
 
 
