@@ -1,0 +1,37 @@
+<header>
+  <h1>All Thoughts</h1>
+
+    <% if thinker_signed_in? %>
+      <ul class="actions">
+        <li><%= link_to "New Thought", new_thought_path, class: 'new' %> </li>
+      </ul>
+    <% end %>
+  </header>
+
+
+<div class="row">
+  <div class="col-sm-3 pull-right">
+    <div class="sidebar">
+      <h3 class="discover">Discover</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to "ALL THOUGHTS", thoughts_path %></li>
+        <li><% @categories.each do |category| %></li>
+          <li><%= link_to category.name.upcase, category_path(category) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+<h3>Join Others Who Thinkalyke</h3>
+<div class="col-sm-9 pull-left">
+ <div id="thoughts">
+   <%= render "thoughts/thoughts" %>
+ </div>
+ <script>
+   $(function(){
+     $('.pagination a').attr('data-remote', 'true')
+   });
+ </script>
+
+

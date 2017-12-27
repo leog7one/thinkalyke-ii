@@ -1,0 +1,47 @@
+<header>
+	<h1><%= @category.name %> Thoughts:</h1>
+
+	<% if current_thinker && current_thinker.admin %>
+		<ul class="actions">
+			<li><%= link_to "Edit Category", edit_admin_category_path(@category), class: 'edit' %></li>
+			<li><%= link_to "Delete Category", admin_category_path(@category), method: :delete, data: { confirm: "Are you sure you want to delete this Category?"}, class: 'delete' %></li>
+		</ul>
+	<% end %>
+</header>
+
+<div class="row">
+  <div class="col-sm-3 pull-right">
+    <div class="sidebar">
+      <h3 class="discover">Discover</h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to "ALL THOUGHTS", thoughts_path %></li>
+        <li><% @categories.each do |category| %></li>
+        	<li><%= link_to category.name.upcase, category_path(category) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+<% @category.thoughts.each do |thought|%>
+  <div class="col-sm-9 pull-left">
+    <%= link_to thought_path(thought) do  %>
+    <div class="thoughts">
+      <div class="row">
+        <div class="col-sm-3">
+          <%= image_tag thought.image, class: 'thought-image' %>
+        </div>
+        <div class="col-sm-9">
+          <h3 class="thought-title"><%= thought.title %></h3>
+          <span class="thought-venue"><%= thought.venue %> - <%= thought.location %></span>
+          <p class="lead-time">
+            <span class="thought-start"><%= time_format(thought.start_date) %></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>   
+  </div>
+<% end %>
+</div>
+</div>

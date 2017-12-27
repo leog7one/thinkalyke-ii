@@ -1,0 +1,22 @@
+<div class="hero">
+	<div class="layer">
+		<div class="frosty col-xs-10 col-xs-offset-1 text-center">
+	<h2>Great Minds</h2>
+	<span class="title">THINKALYKE</span>
+	<h4>Present Your Thoughts</h4>
+	<%= link_to "View Thoughts", thoughts_path, class: 'btn btn-success' %>
+	</div>
+	</div>
+</div>
+
+<br>
+
+<div class="col-xs-10 col-xs-offset-1 text-center">
+	<h2>Some Thoughts Currently Being Presented</h2>
+		<% @thoughts.random_thought.each do |thought| %>
+		<div class="col-sm-3">
+			<h3><%= link_to thought.title, thought_path(thought) %></h3>
+			<%= image_tag thought.image.thumb, class: 'img-responsive center-block' %>
+		</div>
+		<% end %>
+</div>

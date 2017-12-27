@@ -1,0 +1,44 @@
+// Place all the styles related to the admin/application controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.admin {
+  background-color: #3c923c;
+  margin-top: 70px;
+  margin-right: 15px;
+}
+
+.admin-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.admin-menu > li.header {
+  color: #fff;
+  background: #3eb74c;
+  margin: -15px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.admin-menu > li:hover > a,
+.skin-blue .sidebar-menu > li.active > a {
+  color: #fff;
+  background: #1e282c;
+  border-left-color: #3c8dbc;
+}
+
+.admin-menu > li > a {
+  color: #fff;
+  background: #1e282c;
+}
+
+.admin-menu > li > a {
+  padding: 12px 5px 12px 15px;
+  display: block;
+}
+
+

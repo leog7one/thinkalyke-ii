@@ -1,0 +1,32 @@
+<header>
+	<h1>Thinkers </h1>
+</header>
+
+
+
+	<table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Created</th>
+      <th>Thoughts</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	 <% @thinkers.each do |thinker| %>
+    	<tr>
+    		<td><%= thinker %></td>
+    		<td><%= thinker.email %></td>
+    		<td><%= time_format(thinker.created_at) %></td>
+    		<td><%= link_to thinker.thoughts.count, thinker_path(thinker) %></td>
+    		
+    		</td>
+     
+   		 </tr>
+     <% end %>
+   
+  </tbody>
+</table>

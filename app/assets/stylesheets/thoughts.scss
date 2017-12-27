@@ -1,0 +1,154 @@
+// Place all the styles related to the Thoughts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+.thoughts h3.thought-title {
+  margin: 0 0 5px 0;
+  color: #3c923c;
+  font-size: 18px;
+  font-weight: 400px;
+  line-height: 22px;
+}
+
+.thought-image {
+  @extend .img-responsive
+}
+
+.thoughts {
+  border-bottom: 1px solid #eaeaea;
+  padding: 5px;
+  color: #0b5467;
+}
+
+.thoughts:hover {
+  background: #f8f8f8;
+}
+
+.thought-venue,
+.thought-start,
+.sidebar .discover,
+.sidebar .thinker,
+.sidebar .tags,
+.thought-end {
+
+  &:before {
+    font-family: "FontAwesome";
+    padding-right: 0.5em;
+  }
+}
+
+.thought-venue {
+  &:before {
+    @extend .fa-map-marker;
+  }
+}
+
+.thought-start {
+  &:before {
+    @extend .fa-calendar;
+  }
+}
+
+.thought-end {
+  &:before {
+    @extend .fa-calendar-o;
+  }
+}
+
+.sidebar .discover {
+  font-size: 24px;
+
+  &:before {
+    @extend .fa-compass;
+  }
+}
+
+.sidebar .thinker {
+  font-size: 24px;
+
+  &:before {
+    @extend .fa-user;
+  }
+}
+
+.sidebar .tags {
+  font-size: 24px;
+
+  &:before {
+    @extend .fa-tag;
+  }
+}
+
+.sidebar h4.tags {
+  margin-bottom: 20px;
+}
+
+.sidebar .tag {
+  font-weight: bold;
+  padding: 5px;
+  background: #3c923c;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar a .tag {
+  color: #fff;
+}
+
+.sidebar a {
+  color: #5bc0de;
+}
+
+
+h1#show-title,
+.thought-details h3 {
+  color: #3c923c;
+}
+
+.thought-meta {
+  padding: 20px;
+  //background: #3c923c;
+  background: #00b09b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #96c93d, #00b09b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #96c93d, #00b09b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  color: #fff;
+}
+
+.thought-details h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e6e6e6; 
+}
+
+
+.sidebar li > a {
+  color: #23527c;
+  font-weight: 400;
+  font-size: 13px;
+  font-family:  Lato, "Helvetica Neue", "Helvetica";
+}
+
+.sidebar li > a:hover {
+  color: #a73f70;
+  text-decoration: underline;
+}
+
+.sidebar li {
+  @extend .text-justify;
+}
+
+
+
+
+
+
+
+

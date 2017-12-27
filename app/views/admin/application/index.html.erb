@@ -1,0 +1,56 @@
+<div class="container">		
+<header>
+			<h1>Dashboard <small>Admin Panel</small></h1>
+</header>
+
+
+		<ul class="admin-menu">
+			<li class="text-uppercase text-center header">Admin Panel</li>
+		</ul>
+
+	<ul class="admin-menu">
+		 <li>
+        <%= link_to thoughts_path do %>
+          <%= fa_icon "calendar" %>
+          <span>Thoughts</span>
+          <span class="label label-warning pull-right"><%= @thoughts.count %></span>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to admin_thinkers_path do %>
+          <%= fa_icon "user-circle-o" %>
+          <span>Thinkers</span>
+          <span class="label label-warning pull-right"><%= @thinkers.count %></span>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to admin_categories_path do %>
+          <%= fa_icon "archive" %>
+          <span>Categories</span>
+          <span class="label label-warning pull-right"><%= @categories.count %></span>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to admin_comments_path do %>
+          <%= fa_icon "commenting" %>
+          <span>Comments</span>
+          <span class="label label-warning pull-right"><%= @comments.count %></span>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to admin_attendances_path do %>
+          <%= fa_icon "hand-stop-o" %>
+          <span>Attendance</span>
+          <span class="label label-warning pull-right"><%= @attendances.count %></span>
+        <% end %>
+      </li>
+   </ul>
+</div>
+
+	
+
+

@@ -1,0 +1,77 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani');
+
+.hero {
+	background: url('hero.JPG') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 300px;
+  box-shadow: 0px 1px 3px #2a2a2a;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.layer {
+	background-color: rgba(60, 146, 60, 0.7);
+	width: 100%;
+	height: 100%;
+}
+
+.frosty {
+	margin-top: 10px;
+	background: rgba(0,0,0, 0.5);
+	color: white;
+	padding-bottom: 10px;
+}
+
+span.title {
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+/* xs < 768 */
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 0.9em;
+    }
+    span.title {
+    	font-size: 3.0em
+    }
+}
+
+/* sm */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 1em;
+    }
+    span.title {
+    	font-size: 5.5em
+    }
+}
+
+/* md */
+@media screen and (min-width: 992px) {
+    body {
+        font-size: 1.2em;
+    }
+    span.title {
+    	font-size: 7.0em
+    }
+}
+
+/* lg */
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 1.3em;
+    }
+    span.title {
+    	font-size: 7.0em
+    }
+}
+
+
+

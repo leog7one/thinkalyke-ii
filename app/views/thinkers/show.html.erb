@@ -1,0 +1,83 @@
+<header>
+	<h1><%= @thinker.username %>'s Thoughts </h1>
+
+    <% if @thinker == current_thinker %>
+      <ul class="actions">
+        <li><%= link_to "New Thought", new_thought_path, class: 'new' %> </li>
+        <li><%= link_to "My Comments", thinker_comment_path(@thinker, @comments), class: 'comment' %> </li>
+      </ul>
+    <% end %>
+</header>
+
+<h3>Thought's Created</h3>
+
+<% if @thinker.thoughts.any? %>
+
+	<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Thought Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	 <% @thinker.thoughts.each do |thought| %>
+    	<tr>
+    		<td><%= link_to thought.title, thought_path(thought) %></td>
+    		<td><%= time_format(thought.start_date) %></td>
+    		<td><%= time_format(thought.end_date) %></td>
+    		<td><%= thought_status(thought) %></td>
+    		<% if @thinker == current_thinker %>
+    		<td><%= link_to "Edit", edit_thought_path(thought), class: "edit" %>
+    				<%= link_to "Delete", thought_path(thought), method: :delete, data: {confirm: "Are you sure you want to delete this Thought?"}, class: "delete"  %>
+    		<% end %>
+    		</td>
+   		 </tr>
+     <% end %>
+  </tbody>
+</table>
+<% else %>
+<p><%= @thinker.username %> has no thoughts created.</p>
+<% end %>
+
+<% if @thinker == current_thinker || (current_thinker && current_thinker.admin?) %>
+
+<h3>Thought's Attending</h3>
+
+<% if @thinker.attended_thoughts.any? %>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Thought Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% @thinker.attended_thoughts.each do |thought| %>
+      <tr>
+        <td><%= link_to thought.title, thought_path(thought) %></td>
+        <td><%= time_format(thought.start_date) %></td>
+        <td><%= time_format(thought.end_date) %></td>
+        <td><%= thought_status(thought) %></td>
+        <% if @thinker == current_thinker %>
+        <td>
+            <%= link_to "Unregister", thought_attendance_path(thought, @thinker), method: :delete, data: {confirm: "Are you sure you want to Unregister from this thought?"}, class: "delete"  %>
+        <% end %>
+        </td>
+       </tr>
+     <% end %>
+  </tbody>
+</table>
+<% else %>
+<p><%= @thinker.username %> has no attending thoughts.</p>
+<% end %>
+<% end %>
