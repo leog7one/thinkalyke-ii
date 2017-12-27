@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 		@thought = Thought.find(params[:thought_id])
 		@comments = Comment.all
 		@thought_comments = @thought.comments
+		render 'comments/index', :layout => false
 	end
 
 	def create
@@ -13,9 +14,9 @@ class CommentsController < ApplicationController
 		@comment.thinker = current_thinker
 
 		if @comment.save
-			# flash[:notice] = "Comment Created!"
-			# redirect_to thought_path(@comment.thought)
-			render json: @comment, status: 201
+			flash[:notice] = "Comment Created!"
+			redirect_to thought_path(@comment.thought)
+			
 		else
 			flash.now[:alert] = "Comment Not Created!"
 			render 'thoughts/show'
@@ -24,9 +25,10 @@ class CommentsController < ApplicationController
 
 	def show
 		@thought = Thought.find(params[:thought_id])
+		@thought_comments = @thought.comments
 		# @thinker = Thinker.find(params[:thinker_id])
 		# @comments = @thinker.comments
-		render json: @thought, status: 200
+		render @thought_comments, status: 200
 	end
 
 	def comment_params
