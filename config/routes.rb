@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
  
   resources :thoughts do 
-    resources :comments, only: [:create]
+    resources :comments
     resources :attendances, only: [:create, :destroy]
   end
 

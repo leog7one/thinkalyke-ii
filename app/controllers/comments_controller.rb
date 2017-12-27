@@ -1,6 +1,10 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_thinker!
 
+	def index
+		@comments = Comment.all
+	end
+
 	def create
 		@thought = Thought.find(params[:thought_id])
 		@comment = @thought.comments.build(comment_params)
