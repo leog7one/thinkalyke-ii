@@ -20,8 +20,10 @@ class CommentsController < ApplicationController
 	end
 
 	def show
-		@thinker = Thinker.find(params[:thinker_id])
-		@comments = @thinker.comments
+		@thought = Thought.find(params[:thought_id])
+		# @thinker = Thinker.find(params[:thinker_id])
+		# @comments = @thinker.comments
+		render json: @thought, status: 200
 	end
 
 	def comment_params
