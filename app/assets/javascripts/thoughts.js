@@ -4,7 +4,7 @@ $(document).ready(function() {
       method: "GET",
       url: this.href 
     }).done(function(response) {
-        $("div.thought-details").html(response);
+        $("div.thought-comments").html(response);
       });
     e.preventDefault();
   })
