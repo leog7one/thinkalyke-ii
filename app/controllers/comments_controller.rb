@@ -28,7 +28,6 @@ class CommentsController < ApplicationController
 		@thought_comments = @thought.comments
 		# @thinker = Thinker.find(params[:thinker_id])
 		# @comments = @thinker.comments
-		render @thought_comments, status: 200
 	end
 
 	def comment_params
