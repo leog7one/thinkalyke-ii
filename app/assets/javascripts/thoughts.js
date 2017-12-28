@@ -8,6 +8,11 @@ $(document).ready(function() {
     e.preventDefault();
   })
 
+  $('#new_comment').on("submit", function(e) {
+    alert("You clicked submit")
+    
+    e.preventDefault();
+  })
 
 
 })
