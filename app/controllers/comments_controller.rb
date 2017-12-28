@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
 		@comments = Comment.all
 		@thought_comments = @thought.comments
 		#render 'comments/index', :layout => false
-		render :json => @thought_comments
+		#render :json => @thought_comments
+		render :layout => false
 	end
 
 	def create
