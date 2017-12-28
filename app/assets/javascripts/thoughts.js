@@ -1,6 +1,6 @@
 $(document).ready(function() {
+  //LOAD COMMENTS VIA AJAX
   $("a.load_comments").on("click", function(e) {
-    //REQUEST USING JSON
     $.ajax(({
       url: this.href,
       dataType: 'script'
@@ -8,6 +8,7 @@ $(document).ready(function() {
     e.preventDefault();
   })
 
+  //CREATE COMMENTS VIA AJAX
   $('#new_comment').on("submit", function(e) {
     $.ajax({
       type: "POST",
