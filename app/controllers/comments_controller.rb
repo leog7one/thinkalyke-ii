@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
 		@thought = Thought.find(params[:thought_id])
 		@comments = Comment.all
 		@thought_comments = @thought.comments
-		render 'comments/index', :layout => false
+		#render 'comments/index', :layout => false
+		render :json => @thought_comments
 	end
 
 	def create

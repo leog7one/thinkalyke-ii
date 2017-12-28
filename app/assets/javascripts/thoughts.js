@@ -7,9 +7,12 @@ $(document).ready(function() {
     //     $("div.thought-comments").html(response);
     //   });
 
-    $.get(this.href).success(function(response) {
-      $("div.thought-comments").html(response)
-    })
+    // $.get(this.href).success(function(response) {
+    //   $("div.thought-comments").html(response)
+    // })
+
+    //request using JSON
+
     
     e.preventDefault();
   })
