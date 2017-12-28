@@ -1,4 +1,4 @@
-$(document).ready(function() {
+document.addEventListener("turbolinks:load", function() {
   //LOAD COMMENTS VIA AJAX
   $("a.load_comments").on("click", function(e) {
     $.ajax(({
