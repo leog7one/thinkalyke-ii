@@ -9,8 +9,15 @@ $(document).ready(function() {
   })
 
   $('#new_comment').on("submit", function(e) {
-    alert("You clicked submit")
-    
+    $.ajax({
+      type: "POST",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response) {
+        $("#comment_body").val("");
+        var $ol = $("div.thought-comments").html(response)
+      }
+    });
     e.preventDefault();
   })
 
