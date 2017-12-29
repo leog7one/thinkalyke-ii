@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
 		if @comment.save
 			flash[:notice] = "Comment Created!"
 			#redirect_to thought_path(@comment.thought)
-			render 'comments/index', :layout => false
+			render 'comments/index'
 			
 		else
 			flash.now[:alert] = "Comment Not Created!"

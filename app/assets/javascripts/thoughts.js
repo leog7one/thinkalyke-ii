@@ -9,7 +9,7 @@ document.addEventListener("turbolinks:load", function() {
   })
 
   //CREATE COMMENTS VIA AJAX
-  $('#new_comment').on("submit", function(e) {
+  $('#new_comment').unbind("submit").bind("submit", function(e) {
     $.ajax({
       type: "POST",
       url: this.action,
