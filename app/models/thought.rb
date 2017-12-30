@@ -30,5 +30,9 @@ class Thought < ActiveRecord::Base
 		tags.join(", ")
 	end
 
+	def self.next(thought)
+		where('id < ?', thought.id).last
+	end
+
 end
 
