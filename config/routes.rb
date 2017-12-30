@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :thinkers, only: [:show] do
-    resources :comments, only: [:show]
+    resources :comments
   end
   resources :categories, only: [:show]
   resources :tags, only: [:show]

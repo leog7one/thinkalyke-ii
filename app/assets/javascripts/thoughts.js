@@ -21,9 +21,6 @@ document.addEventListener("turbolinks:load", function() {
     e.preventDefault();
   })
 
-  
-
-
   //CREATE COMMENTS VIA AJAX
   // $('#new_comment').unbind("submit").bind("submit", function(e) {
   //   $.ajax({

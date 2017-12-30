@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 		@comment.thinker = current_thinker
 
 		if @comment.save
-			flash[:notice] = "Comment Created!"
+			#flash[:notice] = "Comment Created!"
 			#redirect_to thought_path(@comment.thought)
 			render json: @comment, status: 201
 			
@@ -27,10 +27,11 @@ class CommentsController < ApplicationController
 	end
 
 	def show
-		@thought = Thought.find(params[:thought_id])
-		@thought_comments = @thought.comments
-		# @thinker = Thinker.find(params[:thinker_id])
-		# @comments = @thinker.comments
+		# @thought = Thought.find(params[:thought_id])
+		# @thought_comments = @thought.comments
+		@thinker = Thinker.find(params[:thinker_id])
+		@comments = @thinker.comments
+		
 	end
 
 	def comment_params
