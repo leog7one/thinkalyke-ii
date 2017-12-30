@@ -33,9 +33,11 @@
     <h3>Comments</h3>
       <div class="thought-comments">
         <% if @thought.comments.any? %> 
-            <%= link_to "Load Comments", thought_comments_path(@thought), :class => 'load_comments' %>
+            <%= link_to "Load All Comments", thought_comments_path(@thought), :class => 'load_comments' %>
         <% else %>
-          There are no comments for this Thought
+          <div class="no-thoughts">
+            There are no comments for this Thought
+          </div>
         <% end %>
       </div>
         <% if signed_in? %>

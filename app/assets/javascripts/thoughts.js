@@ -1,19 +1,22 @@
 document.addEventListener("turbolinks:load", function() {
-  //LOAD COMMENTS VIA AJAX
+  
   $("a.load_comments").on("click", function(e) {
+    
+    //LOAD COMMENTS VIA AJAX
     // $.ajax(({
     //   url: this.href,
     //   dataType: 'script'
     // }))
-    $.get(this.href).success(function(json) {
+
+    $.get(this.href).success(function(comments) {
      var $ol = $("div.thought-comments")
      $ol.html("")
 
-     json.forEach(function(comment) {
-       $ol.append("<li>" + "<blockquote>" + comment.body + "<footer>" + 'by: ' + comment.thinker.username + "</footer>" +
-       "</blockquote>" + "</li>" )
+     comments.forEach(function(comment) {
+      const oneComment = new Comment(comment)
+      const commentHTML = oneComment.formatComment()
+      $ol.append(commentHTML)
      })
-
     })
     e.preventDefault();
   })
@@ -37,14 +40,13 @@ document.addEventListener("turbolinks:load", function() {
 
   // JS Constructor - Comment
 function Comment(comment) {
-  this.id = comment.id
   this.username = comment.thinker.username
   this.comment = comment.body
 }
 
 // Prototype method
   Comment.prototype.formatComment = function() {
-    commentHTML = `<li data-id=${this.id}><b>On ${this.username}:</b> ${this.comment} </li>`
+    commentHTML = `<li><blockquote>${this.comment}<footer> by: ${this.username}</footer></blockquote></li>`
     return commentHTML
   }
 
@@ -62,9 +64,13 @@ function Comment(comment) {
           const $ol = $("div.thought-comments");
           const newComment = new Comment(comment);
           const commentHTML = newComment.formatComment();
-          $ol.append(commentHTML);
-        }
-        $("div.thought-comments").val("");
+            if($(".no-thoughts").text() != '') {
+              $ol.html(commentHTML);
+            } else {
+              $ol.append(commentHTML)
+            }   
+        }     
+        $("#comment_body").val("");
       });
       e.preventDefault();
       })
