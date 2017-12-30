@@ -106,7 +106,8 @@ ul.error {
 a.new,
 a.comment, 
 a.edit,
-a.delete {
+a.delete,
+a.next {
 	@extend .btn;
 
 	&:before {
@@ -144,6 +145,14 @@ a.delete {
 
   &:before {
     @extend .fa-trash;
+  }
+}
+
+a.next {
+  @extend .btn-primary;
+
+  &:before {
+    @extend .fa-arrow-circle-right;
   }
 }
 
