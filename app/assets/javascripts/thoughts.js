@@ -49,15 +49,10 @@ function Comment(comment) {
 
   //Submit comment using JSON and RAILS API
 
+  
+
     $(".new_comment").on("submit", function(e){
       $.post(this.action, $(this).serialize(), function(comment) {
-        if (Array.isArray(comment)) {
-          var message = "";
-          comment.forEach(function(error) {
-            message += `${error}\n`
-          })
-          alert(message);
-        } else {
           const $ol = $("div.thought-comments");
           const newComment = new Comment(comment);
           const commentHTML = newComment.formatComment();
@@ -65,8 +60,7 @@ function Comment(comment) {
               $ol.html(commentHTML);
             } else {
               $ol.append(commentHTML)
-            }   
-        }     
+            }        
         $("#comment_body").val("");
       });
       e.preventDefault();
