@@ -31,7 +31,7 @@ class Thought < ActiveRecord::Base
 	end
 
 	def self.next(thought)
-		where('id < ?', thought.id).last
+		where('id < ?', thought.id).first
 	end
 
 end
