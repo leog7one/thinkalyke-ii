@@ -11,7 +11,9 @@
       <% if signed_in? && @thought.thinker != current_thinker %>
         <li><%= link_to "Register", thought_attendances_path(@thought), method: :post, class: 'new' %></li>
       <% end %> 
+     <% if @thoughts.next(@thought) %>
       <li><%= link_to "Next Thought",@thoughts.next(@thought), class: 'next' %></li>
+      <% end %>
     </ul>
  
 
