@@ -48,14 +48,7 @@ function Comment(comment) {
   }
 
   //Submit comment using JSON and RAILS API
-
-  
-
     $(".new_comment").on("submit", function(e){
-      if ($('#comment_body').val() == '') {
-        alert('Cannot submit blank comment');
-        $("#comment_body").val("");
-      } else {
       $.post(this.action, $(this).serialize(), function(comment) {
           const $ol = $("div.thought-comments");
           const newComment = new Comment(comment);
@@ -66,7 +59,7 @@ function Comment(comment) {
               $ol.append(commentHTML)
             }        
         $("#comment_body").val("");
-      })};
+      });
       e.preventDefault();
       })
 
