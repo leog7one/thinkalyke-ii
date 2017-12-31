@@ -1,0 +1,51 @@
+<header>
+	<h1><%= @thinker.username %> </h1>
+</header>
+
+<h4> Email: <%= @thinker.email %></h4>
+<h4> Member Since: <%= time_format(@thinker.created_at) %></h4>
+
+<h3>Thoughts</h3>
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>Thought</th>
+      <th>Created</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @thinker.thoughts.each do |thought| %>
+      <tr>
+        <td><%= link_to thought.title, thought_path(thought) %></td>
+        <td><%= time_format(thought.created_at) %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<h3>Comments:</h3>
+
+<table class="table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>Comment</th>
+      <th>Created</th>
+      <th>Thought</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @thinker.comments.each do |comment| %>
+      <tr>
+        <td><%= truncate(comment.body, length: 30) %></td>
+        <td><%= time_format(comment.created_at) %></td>
+        <td><%= link_to comment.thought.title, thought_path(comment.thought) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
