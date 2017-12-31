@@ -1,8 +1,11 @@
 <header>
 	<h1><%= @thinker.username %> </h1>
    <ul class="actions">
-    <% if @thinkers.next(@thinker) %>
-      <li><%= link_to "Next Thinker", admin_thinker_path(@thinkers.next(@thinker)), class: 'next' %></li>
+   <% if @thinker.previous %>
+      <li><%= link_to "Previous Thinker", admin_thinker_path(@thinker.previous), class: 'previous' %></li>
+    <% end %>
+    <% if @thinker.next %>
+      <li><%= link_to "Next Thinker", admin_thinker_path(@thinker.next), class: 'next' %></li>
     <% end %>
     </ul>
 </header>

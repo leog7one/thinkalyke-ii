@@ -24,8 +24,12 @@ class Thinker < ActiveRecord::Base
   	"#{username}"
   end
 
-  def self.next(thinker)
-		where('id < ?', thinker.id).first
+  def next
+    Thinker.where("username > ?", username).order(username: :asc).limit(1).first
+  end
+
+  def previous
+    Thinker.where("username < ?", username).order(username: :desc).limit(1).first
   end
   
 end

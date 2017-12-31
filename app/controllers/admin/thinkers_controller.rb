@@ -6,6 +6,5 @@ class Admin::ThinkersController < Admin::ApplicationController
 
 	def show
 		@thinker = Thinker.find(params[:id])
-		@thinkers = Thinker.order(created_at: :desc)
 	end
 end

@@ -107,7 +107,8 @@ a.new,
 a.comment, 
 a.edit,
 a.delete,
-a.next {
+a.next,
+a.previous {
 	@extend .btn;
 
 	&:before {
@@ -153,6 +154,14 @@ a.next {
 
   &:before {
     @extend .fa-arrow-circle-right;
+  }
+}
+
+a.previous {
+  @extend .btn-primary;
+
+  &:before {
+    @extend .fa-arrow-circle-left;
   }
 }
 
