@@ -14,10 +14,11 @@ class ThoughtsController < ApplicationController
     @comment = Comment.new
     @comment.thought_id = @thought.id
     @thoughts = Thought.order(created_at: :desc)
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @thought }
-	  end
+    # respond_to do |format|
+    #   #format.html { render :show }
+    #   format.json { render json: @thought }
+    render json: @thought
+	  # end
   end
 
 
