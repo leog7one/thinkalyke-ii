@@ -23,4 +23,9 @@ class Thinker < ActiveRecord::Base
   def to_s
   	"#{username}"
   end
+
+  def self.next(thinker)
+		where('id < ?', thinker.id).first
+  end
+  
 end
