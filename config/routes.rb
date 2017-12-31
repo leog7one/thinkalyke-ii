@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'application#index'
-    resources :thinkers, only: [:index]
+    resources :thinkers, only: [:index, :show]
     resources :categories, except: [:show]
     resources :comments, only: [:index]
     resources :attendances, only: [:index]

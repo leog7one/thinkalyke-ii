@@ -18,7 +18,7 @@
   <tbody>
   	 <% @thinkers.each do |thinker| %>
     	<tr>
-    		<td><%= thinker %></td>
+    		<td><%= link_to thinker.username, admin_thinker_path(thinker) %></td>
     		<td><%= thinker.email %></td>
     		<td><%= time_format(thinker.created_at) %></td>
     		<td><%= link_to thinker.thoughts.count, thinker_path(thinker) %></td>
