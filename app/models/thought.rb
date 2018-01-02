@@ -34,5 +34,9 @@ class Thought < ActiveRecord::Base
 		where('id < ?', thought.id).first
 	end
 
+	def self.previous(thought)
+		where('id > ?', thought.id).last
+	end
+
 end
 
