@@ -57,6 +57,9 @@ Clicking on a Tag in the "Thought" show page will then link you to other "Though
 * Rails
 * Devise
 * Bootstrap
+* jQuery
+* JavaScript
+* AJAX
 
 ## License
 
