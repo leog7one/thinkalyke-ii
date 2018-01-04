@@ -17,7 +17,7 @@ class ThoughtsController < ApplicationController
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @thought }
-	  end
+    end
   end
 
 

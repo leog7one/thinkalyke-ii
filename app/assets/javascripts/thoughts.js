@@ -1,4 +1,16 @@
 document.addEventListener("turbolinks:load", function() {
+
+  $("a.previous").on("click", function(e) {
+
+    $.getJSON(this.href).success(function(json) {
+      var title = $(json).attr('title')
+      var $h1 = $("h1")
+      $h1.html("")
+      $h1.append("<h1>" + title + "</h1> ")
+    });
+    e.preventDefault();
+  })
+
   
   $("a.load_comments").on("click", function(e) {
     
