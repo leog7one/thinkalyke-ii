@@ -1,5 +1,5 @@
 <header>
-  <h1 class="title"><%= @thought.title %></h1>
+  <h1><%= @thought.title %></h1>
     
   <% if @thought.thinker == current_thinker || (current_thinker && current_thinker.admin?) %>
     <ul class="actions">
@@ -10,11 +10,12 @@
         <li><%= link_to "Register", thought_attendances_path(@thought), method: :post, class: 'new' %></li>
       <% end %> 
     
-      
-        <li><button class="previous" data-id="<%= @thought.id%>">Previous Thought</button></li>
-     
-        <li><button class="next" data-id="<%= @thought.id%>">Next Thought</button></li>
-    
+      <% if @thoughts.previous(@thought) %>
+        <li><%= link_to "Previous Thought",@thoughts.previous(@thought), class: 'previous' %></li>
+      <% end %>
+     <% if @thoughts.next(@thought) %>
+        <li><%= link_to "Next Thought",@thoughts.next(@thought), class: 'next' %></li>
+      <% end %>
       
     </ul>
 </header>

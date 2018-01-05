@@ -21,10 +21,6 @@ Rails.application.routes.draw do
     resources :attendances, only: [:create, :destroy]
   end
 
-  get '/thoughts/:id/next', to: 'thoughts#next_thought'
-
-  get '/thoughts/:id/previous', to: 'thoughts#previous_thought'
-
   resources :thinkers, only: [:show] do
     resources :comments
   end
