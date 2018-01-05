@@ -18,9 +18,9 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="thinkerThoughts">
     <% @thinker.thoughts.each do |thought| %>
-      <tr>
+     <tr>
         <td><%= link_to thought.title, thought_path(thought) %></td>
         <td><%= time_format(thought.created_at) %></td>
         
