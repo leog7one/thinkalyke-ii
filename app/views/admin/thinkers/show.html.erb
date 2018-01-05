@@ -1,17 +1,13 @@
 <header>
-	<h1><%= @thinker.username %> </h1>
+	<h1 class="thinkerUsername"><%= @thinker.username %> </h1>
    <ul class="actions">
-   <% if @thinker.previous %>
-      <li><%= link_to "Previous Thinker", admin_thinker_path(@thinker.previous), class: 'previous' %></li>
-    <% end %>
-    <% if @thinker.next %>
-      <li><%= link_to "Next Thinker", admin_thinker_path(@thinker.next), class: 'next' %></li>
-    <% end %>
+    <a href="#" class="js-previous btn btn-primary btn-sm" data-id="<%=@thinker.id%>">Previous Thinker</a><br><br>
+    <a href="#" class="js-next btn btn-primary btn-sm" data-id="<%=@thinker.id%>">Next Thinker</a><br><br>
     </ul>
 </header>
 
-<h4> Email: <%= @thinker.email %></h4>
-<h4> Member Since: <%= time_format(@thinker.created_at) %></h4>
+<h4 class="thinkerEmail"> Email: <%= @thinker.email %></h4>
+<h4 class="thinkerJoin"> Member Since: <%= time_format(@thinker.created_at) %></h4>
 
 <h3>Thoughts</h3>
 <table class="table table-striped table-responsive">
@@ -34,7 +30,7 @@
 
 </table>
 
-<h3>Comments:</h3>
+<h3 class="comment-list">Comments:</h3>
 
 <table class="table table-striped table-responsive">
   <thead>

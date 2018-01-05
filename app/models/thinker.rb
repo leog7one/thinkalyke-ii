@@ -25,11 +25,21 @@ class Thinker < ActiveRecord::Base
   end
 
   def next
-    Thinker.where("username > ?", username).order(username: :asc).limit(1).first
+    # if the first destination is greater the current one exists then return the next destination
+    if next_thinker = self.class.where("id > ?", id).first
+      next_thinker
+    else
+      Thinker.first
+    end
   end
 
   def previous
-    Thinker.where("username < ?", username).order(username: :desc).limit(1).first
+    # if the destination is less then current one exists then return the previous destination
+    if previous_thinker = self.class.where("id < ?", id).last
+      previous_thinker
+    else
+      Thinker.last
+    end
   end
   
 end

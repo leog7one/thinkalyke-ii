@@ -4,4 +4,6 @@ class ThinkersController < ApplicationController
 		@thinker = Thinker.find(params[:id])
 		@comments = @thinker.comments
 	end
+
+	
 end
