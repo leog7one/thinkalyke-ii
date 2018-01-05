@@ -10,7 +10,15 @@ document.addEventListener("turbolinks:load", function() {
     var $thoughts = $(".thinkerThoughts").html('');
     data['thoughts'].forEach(function(thought) {
       title = thought.title
-      $thoughts.append(`<tr><td>${title}</td></tr>`);
+      created_at = thought.created_at
+      $thoughts.append(`<tr><td>${title}</td><td>${created_at}</td></tr>`);
+    })
+    var $comments = $(".comment-list").html('');
+    data['comments'].forEach(function(comment) {
+      body = comment.body
+      thought_title = comment.thought.title
+      comment_created = comment.created_at
+      $comments.append(`<tr><td>${body}</td><td>${comment_created}</td><td>${thought_title}</td></tr>`);
     })
 
  }
