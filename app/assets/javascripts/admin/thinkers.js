@@ -7,13 +7,12 @@ document.addEventListener("turbolinks:load", function() {
     $email.append(`<h4>Email: ${data.email} <h4>`);
     var $joined = $(".thinkerJoin").html('');
     $joined.append(`<h4>Member Since: ${data.created_at} <h4>`);
-
+    var $thoughts = $(".thinkerThoughts").html('');
     data['thoughts'].forEach(function(thought) {
-      console.log(thought.title)
+      title = thought.title
+      $thoughts.append(`<tr><td>${title}</td></tr>`);
     })
 
-
-  
  }
 
   $(".js-next").on("click", function(event) {
