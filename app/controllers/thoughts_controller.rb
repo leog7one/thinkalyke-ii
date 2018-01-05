@@ -20,6 +20,20 @@ class ThoughtsController < ApplicationController
     end
   end
 
+  def next_thought
+    
+    @thought = Thought.find(params[:id])
+    @next_thought = @thought.next
+    render json: @next_thought
+  end
+
+  def previous_thought
+    
+    @thought = Thought.find(params[:id])
+    @previous_thought = @thought.previous
+    render json: @previous_thought
+  end
+
 
   def new
     @thought = Thought.new

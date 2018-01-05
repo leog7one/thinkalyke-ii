@@ -38,5 +38,23 @@ class Thought < ActiveRecord::Base
 		where('id > ?', thought.id).last
 	end
 
+	def next
+    # if the first destination is greater the current one exists then return the next destination
+    if next_thought = self.class.where("id > ?", id).first
+      next_thought
+    else
+      Thought.first
+    end
+  end
+
+  def previous
+    # if the destination is less then current one exists then return the previous destination
+    if previous_thought = self.class.where("id < ?", id).last
+      previous_thought
+    else
+      Thought.last
+    end
+  end
+
 end
 

@@ -1,24 +1,57 @@
 document.addEventListener("turbolinks:load", function() {
 
-  $("a.previous").on("click", function(e) {
+  function loadThought(data) {
+    history.pushState({}, "", "/thoughts/" + data.id)
+    var thoughtsCommentPath = '/thoughts/' + data.id + '/comments/';
+    $(".title").text(data["title"]);
+    $(".thoughtThinkerName").text(data["thinker"]["username"]);
+    $(".thoughtVenue").text(data["venue"]);
+    $(".thoughtLocation").text(data["location"]);
+    $(".thoughtDescription").text(data["description"]);
+    $(".thoughtStartDate").text(data["start_date"]);
+    $(".thoughtEndDate").text(data["end_date"]);
+    $(".thoughtCategory").text(data["category"]);
+    $(".next").attr("data-id", data["id"]);
+    $(".previous").attr("data-id",data["id"]);     
+}
 
-    $.getJSON(this.href).success(function(json) {
-      var title = $(json).attr('title')
-      var $h1 = $("h1")
-      $h1.html("")
-      $h1.append("<h1>" + title + "</h1> ")
-    });
-    e.preventDefault();
-  })
 
-  
+$(".next").on("click", function(event) {
+  var id = $(".next").attr("data-id")
+  $.get("/thoughts/" + id + "/next", + function(data) {
+    console.log(data)
+    loadThought(data);
+  });
+  event.preventDefault();
+});
+
+$(".previous").on("click", function(event) {
+  var id = $(".previous").attr("data-id")
+  $.get("/thoughts/" + id + "/next", function(data) {
+    console.log(data)
+    loadThought(data);
+  });
+  event.preventDefault();
+
+});
+
+
+  // $("a.previous").on("click", function(e) {
+
+  //   var addressValue = $(this).attr("href");
+  //       alert(addressValue );
+
+  //   $.getJSON(this.href).success(function(json) { 
+  //     var title = $(json).attr('title')
+  //     var $h1 = $("h1")
+  //     $h1.html("")
+  //     $h1.append("<h1>" + title + "</h1> ")
+  //   });
+  //   e.preventDefault();
+  // })
+
+  //LOAD COMMENTS
   $("a.load_comments").on("click", function(e) {
-    
-    //LOAD COMMENTS VIA AJAX
-    // $.ajax(({
-    //   url: this.href,
-    //   dataType: 'script'
-    // }))
 
     $.get(this.href).success(function(comments) {
      var $ol = $("div.thought-comments")

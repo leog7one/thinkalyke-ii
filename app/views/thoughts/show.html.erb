@@ -1,5 +1,5 @@
 <header>
-  <h1><%= @thought.title %></h1>
+  <h1 class="title"><%= @thought.title %></h1>
     
   <% if @thought.thinker == current_thinker || (current_thinker && current_thinker.admin?) %>
     <ul class="actions">
@@ -11,10 +11,10 @@
       <% end %> 
     
       <% if @thoughts.previous(@thought) %>
-        <li><%= link_to "Previous Thought",@thoughts.previous(@thought), class: 'previous' %></li>
+        <li><button class="previous" data-id="<%= @thought.id%>">Previous Thought</button></li>
       <% end %>
      <% if @thoughts.next(@thought) %>
-        <li><%= link_to "Next Thought",@thoughts.next(@thought), class: 'next' %></li>
+        <li><button class="next" data-id="<%= @thought.id%>">Next Thought</button></li>
       <% end %>
       
     </ul>
