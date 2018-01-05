@@ -8,13 +8,19 @@ document.addEventListener("turbolinks:load", function() {
     var $joined = $(".thinkerJoin").html('');
     $joined.append(`<h4>Member Since: ${data.created_at} <h4>`);
 
+    data['thoughts'].forEach(function(thought) {
+      console.log(thought.title)
+    })
+
+
+  
  }
 
   $(".js-next").on("click", function(event) {
     var id = $(".js-next").attr("data-id")
     $.get("/admin/thinkers/" + id + "/next", function(data) {
-      console.log(data)
-      loadThinker(data);
+      //  console.log(data['thoughts'])
+       loadThinker(data);
     });
     event.preventDefault();
   });
