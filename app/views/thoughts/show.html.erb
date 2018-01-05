@@ -10,12 +10,11 @@
         <li><%= link_to "Register", thought_attendances_path(@thought), method: :post, class: 'new' %></li>
       <% end %> 
     
-      <% if @thoughts.previous(@thought) %>
+      
         <li><button class="previous" data-id="<%= @thought.id%>">Previous Thought</button></li>
-      <% end %>
-     <% if @thoughts.next(@thought) %>
+     
         <li><button class="next" data-id="<%= @thought.id%>">Next Thought</button></li>
-      <% end %>
+    
       
     </ul>
 </header>

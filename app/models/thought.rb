@@ -30,13 +30,13 @@ class Thought < ActiveRecord::Base
 		tags.join(", ")
 	end
 
-	def self.next(thought)
-		where('id < ?', thought.id).first
-	end
+	# def self.next(thought)
+	# 	where('id < ?', thought.id).first
+	# end
 
-	def self.previous(thought)
-		where('id > ?', thought.id).last
-	end
+	# def self.previous(thought)
+	# 	where('id > ?', thought.id).last
+	# end
 
 	def next
     # if the first destination is greater the current one exists then return the next destination

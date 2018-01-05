@@ -32,7 +32,6 @@ $(".previous").on("click", function(event) {
     loadThought(data);
   });
   event.preventDefault();
-
 });
 
 
