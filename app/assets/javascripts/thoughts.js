@@ -2,12 +2,6 @@ document.addEventListener("turbolinks:load", function() {
   
   $("a.load_comments").on("click", function(e) {
     
-    //LOAD COMMENTS VIA AJAX
-    // $.ajax(({
-    //   url: this.href,
-    //   dataType: 'script'
-    // }))
-
     $.get(this.href).success(function(comments) {
      var $ol = $("div.thought-comments")
      $ol.html("")
@@ -21,19 +15,6 @@ document.addEventListener("turbolinks:load", function() {
     e.preventDefault();
   })
 
-  //CREATE COMMENTS VIA AJAX
-  // $('#new_comment').unbind("submit").bind("submit", function(e) {
-  //   $.ajax({
-  //     type: "POST",
-  //     url: this.action,
-  //     data: $(this).serialize(),
-  //     success: function(response) {
-  //       $("#comment_body").val("");
-  //       var $ol = $("div.thought-comments").html(response)
-  //     }
-  //   });
-  //   e.preventDefault();
-  // })
 
   // JS Constructor - Comment
 function Comment(comment) {
@@ -43,8 +24,7 @@ function Comment(comment) {
 
 // Prototype method
   Comment.prototype.formatComment = function() {
-    commentHTML = `<li><blockquote>${this.comment}<footer> by: ${this.username}</footer></blockquote></li>`
-    return commentHTML
+    return `<li><blockquote>${this.comment}<footer> by: ${this.username}</footer></blockquote></li>`
   }
 
   //Submit comment using JSON and RAILS API
