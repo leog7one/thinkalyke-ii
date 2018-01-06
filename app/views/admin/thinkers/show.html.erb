@@ -7,7 +7,7 @@
 </header>
 
 <h4 class="thinkerEmail"> Email: <%= @thinker.email %></h4>
-<h4 class="thinkerJoin"> Member Since: <%= time_format(@thinker.created_at) %></h4>
+
 
 <h3>Thoughts:</h3>
 <table class="table table-striped table-responsive">
@@ -15,14 +15,14 @@
  <thead>
     <tr>
       <th>Thought</th>
-      <th>Created</th>
     </tr>
   </thead>
   
   <tbody class="thinkerThoughts">
     <% @thinker.thoughts.each do |thought| %>
      <tr>
-        <td><%= link_to thought.title, thought_path(thought) %></td>
+        <td><%= thought.title%></td>
+       
       </tr>
     <% end %>
   </tbody>
@@ -35,7 +35,6 @@
   <thead>
     <tr>
       <th>Comment</th>
-      <th>Created</th>
       <th>Thought</th>
     </tr>
   </thead>
@@ -44,8 +43,7 @@
     <% @thinker.comments.each do |comment| %>
       <tr>
         <td><%= truncate(comment.body, length: 30) %></td>
-        <td><%= time_format(comment.created_at) %></td>
-        <td><%= link_to comment.thought.title, thought_path(comment.thought) %></td>
+        <td><%= comment.thought.title %></td>
       </tr>
     <% end %>
   </tbody>

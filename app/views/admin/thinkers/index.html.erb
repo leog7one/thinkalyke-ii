@@ -2,8 +2,6 @@
 	<h1>Thinkers </h1>
 </header>
 
-
-
 	<table class="table">
   <thead>
     <tr>
@@ -15,7 +13,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="js-thinkers">
   	 <% @thinkers.each do |thinker| %>
     	<tr>
     		<td><%= link_to thinker.username, admin_thinker_path(thinker) %></td>

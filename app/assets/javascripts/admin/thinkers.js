@@ -7,20 +7,16 @@ document.addEventListener("turbolinks:load", function() {
     $username.append("<h1>" + data.username + "<h1>");
     const $email = $(".thinkerEmail").html('');
     $email.append(`<h4>Email: ${data.email} <h4>`);
-    const $joined = $(".thinkerJoin").html('');
-    $joined.append(`<h4>Member Since: ${data.created_at} <h4>`);
     const $thoughts = $(".thinkerThoughts").html('');
     data['thoughts'].forEach(function(thought) {
       title = thought.title
-      created_at = thought.created_at
-      $thoughts.append(`<tr><td>${title}</td><td>${new Date(created_at)}</td></tr>`);
+      $thoughts.append(`<tr><td>${title}</td></tr>`);
     })
     const $comments = $(".comment-list").html('');
     data['comments'].forEach(function(comment) {
       body = comment.body
       thought_title = comment.thought.title
-      comment_created = comment.created_at
-      $comments.append(`<tr><td>${body}</td><td>${new Date(comment_created)}</td><td>${thought_title}</td></tr>`);
+      $comments.append(`<tr><td>${body}</td><td>${thought_title}</td></tr>`);
     })
 
  }
@@ -41,7 +37,6 @@ document.addEventListener("turbolinks:load", function() {
       loadThinker(data);
     });
     event.preventDefault();
-
   });
 
 

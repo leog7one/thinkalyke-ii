@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 	before_action :authenticate_thinker!
 
 	def index
+		@comment.thinker = Thinker.find(params[:id])
 		@thought = Thought.find(params[:thought_id])
 		@comments = Comment.all
 		@thought_comments = @thought.comments

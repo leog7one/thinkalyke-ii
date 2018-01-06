@@ -21,11 +21,11 @@ class Thinker < ActiveRecord::Base
   end
 
   def to_s
-  	"#{id}"
+  	"#{username}"
   end
 
   def next
-    # if the first destination is greater the current one exists then return the next destination
+    # if the first destination is greater the current 
     if next_thinker = self.class.where("id > ?", id).first
       next_thinker
     else
@@ -34,7 +34,7 @@ class Thinker < ActiveRecord::Base
   end
 
   def previous
-    # if the destination is less then current one exists then return the previous destination
+    # if the destination is less then current 
     if previous_thinker = self.class.where("id < ?", id).last
       previous_thinker
     else

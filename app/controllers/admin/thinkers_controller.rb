@@ -2,6 +2,7 @@ class Admin::ThinkersController < Admin::ApplicationController
 
 	def index
 		@thinkers = Thinker.order(:username)
+		
 	end
 
 	def show
