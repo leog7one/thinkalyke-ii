@@ -40,7 +40,7 @@
         <% if @thought.comments.any? %> 
             <%= link_to "Load All Comments", thought_comments_path(@thought), :class => 'load_comments' %>
         <% else %>
-          <div class="no-thoughts">
+          <div class="no-comments">
             There are no comments for this Thought  
         <% end %>
           </div> 

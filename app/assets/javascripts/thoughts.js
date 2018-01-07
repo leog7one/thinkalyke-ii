@@ -34,7 +34,7 @@ function Comment(comment) {
           const $ol = $("div.thought-comments");
           const newComment = new Comment(comment);
           const commentHTML = newComment.formatComment();
-            if($(".no-thoughts").text() != '') {
+            if($(".no-comments").text() != '') {
               $ol.html(commentHTML);
             } else {
               $ol.append(commentHTML)
