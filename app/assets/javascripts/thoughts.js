@@ -24,7 +24,8 @@ function Comment(comment) {
 
 // Prototype method
   Comment.prototype.formatComment = function() {
-    return `<li><blockquote>${this.comment}<footer> by: ${this.username}</footer></blockquote></li>`
+    commentHTML =  `<li><blockquote>${this.comment}<footer> by: ${this.username}</footer></blockquote></li>`
+    return commentHTML
   }
 
   //Submit comment using JSON and RAILS API
