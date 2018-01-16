@@ -11,7 +11,7 @@ class Thinker < ActiveRecord::Base
   has_many :attended_thoughts, through: :attendances
   has_many :comments
 
-  validates :id, presence:true,length: {minimum: 3}
+  # validates :id, presence:true,length: {minimum: 3}
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user| 
